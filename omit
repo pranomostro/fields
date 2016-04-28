@@ -1,0 +1,71 @@
+#!/usr/bin/env rc
+
+if(~ $#* '0'){
+	echo 'Usage: omit NUM-NUM | -NUM | NUM- | NUMLIST' >[2=1]
+	exit 1
+}
+
+awk '
+BEGIN {
+	LIST=1;
+	RANGE=2;
+	callfun=RANGE;
+	lowlim=1;
+	uplim=1;
+	split(ARGV[1], omits, "-");
+
+	if(ARGV[1]~"^[0-9]+-$")
+	{
+		lowmid=omits[1]-1;
+		uplim=0;
+	}
+	else if(ARGV[1]~"^-[0-9]+$")
+	{
+		upmid=omits[2]+1;
+		lowlim=0;
+	}
+	else if(ARGV[1]~"^[0-9]+-[0-9]+$")
+	{
+		lowmid=omits[1]-1;
+		upmid=omits[2]+1;
+	}
+	else
+	{
+		for(i=1; i<ARGC; i++)
+			if(ARGV[i]!~"^[0-9]+$"||ARGV[i]~"^0+$")
+			{
+				print("error: list of positive non-null numbers expected, got \"" ARGV[i] "\", exiting.")
+				exit(2);
+			}
+		callfun=LIST;
+		for(i in ARGV)
+			list[ARGV[i]]=1;
+	}
+	if(lowmid<=0)
+		lowlim=0;
+	ARGV[1]="-";
+	for(i=2; i<ARGC; i++)
+		delete ARGV[i];
+}
+
+callfun==RANGE {
+	if(lowlim)
+	{
+		for(i=1; i<=lowmid; i++)
+		printf("%s%s", $i, ((i==lowmid&&!uplim)?"":" "));
+	}
+	if(uplim)
+	{
+		for(i=upmid; i<=NF; i++)
+			printf("%s%s", $i, (i==NF?"":" "));
+	}
+	printf("\n");
+}
+
+callfun==LIST{
+	for(i=1; i<=NF; i++)
+		if(list[i]==0)
+			printf("%s%s", $i, (i==NF?"":" "));
+	printf("\n");
+}
+' $*
