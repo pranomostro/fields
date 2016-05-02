@@ -1,10 +1,10 @@
-# ssam - stream interface for sam
-# Depends on ../lib9
+# fields - cut for plan 9, with some more features
+# Depends on ../awk
 
 include ../config.mk
 
 all:
-	@echo built ssam
+	@echo built fields
 
 install:
 	@cp -f omit take ${DESTDIR}${PREFIX}/bin/
