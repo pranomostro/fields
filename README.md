@@ -53,4 +53,4 @@ targets of the Makefile, then type `make install`.
 License
 =======
 
-./COPYING
+./LICENSE
