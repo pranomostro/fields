@@ -1,4 +1,4 @@
-# fields - cut for plan 9, with some more features
+# fields - cut for plan9, with some more features
 # Depends on ../awk
 
 include ../config.mk
