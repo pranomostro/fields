@@ -26,7 +26,7 @@ Tools
 * omit: omit the given range (or list) of fields of the input and print the rest
 * take: print only a range (or list) of fields from the input
 
-The Range
+The lange
 ---------
 
 A range is be defined like this (BNF):
@@ -38,7 +38,7 @@ A range is be defined like this (BNF):
 num is a nonnegative integer. 0 is treated as 1 (because of the way awk
 deals with field numbering®). A range includes its delimiters.
 
-The List
+The list
 --------
 
 A list is just a sequence of nonnegative non-null integers.
