@@ -8,26 +8,22 @@ omit, take \- select input fields
 .B take NUM- | -NUM | NUM-NUM | NUM [NUMLIST]
 
 .SH DESCRIPTION
-take and omit print the fields of their input specified
-by their command-line arguments. These are either a list
-of fields or a field-range.
+take and omit print the fields of their input specified by their
+command-line arguments. These are either a list of fields or a
+field-range.
 .P
-A list of fields is a non-empty sequence of non-null
-positive integers. A range of fields is defined as two
-positive non-null numbers, separated by a dash ('-'),
-where the first number specifies the lower limit and
-the second number the upper limit. Either the first
-number can be left out (1 is assumed) or the second
-(the upper limit is then the number of fields).
+A list of fields is a non-empty sequence of non-null positive integers. A
+range of fields is defined as two positive non-null numbers, separated
+by a dash ('-'), where the first number specifies the lower limit and the
+second number the upper limit. Either the first number can be left out (1
+is assumed) or the second (the upper limit is then the number of fields).
 A range includes its upper and lower limits.
 .P
-omit prints all input fields except the specified fields,
-take only prints the specified fields.
-The output fields are separated by spaces.
+omit prints all input fields except the specified fields, take only
+prints the specified fields. The output fields are separated by spaces.
 
 .SH BUGS
-There is no way to elegantly specify the field
-separator of the in/output.
+The field separator of the input/output can't be specified.
 
 .SH SEE ALSO
 .IR awk (1).

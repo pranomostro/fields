@@ -62,7 +62,7 @@ callfun==RANGE {
 	printf("\n");
 }
 
-callfun==LIST{
+callfun==LIST {
 	for(i=1; i<=NF; i++)
 		if(list[i]==0)
 			printf("%s%s", $i, (i==NF?"":" "));
