@@ -1,7 +1,7 @@
 #!/usr/bin/env rc
 
 if(~ $#* '0'){
-	echo 'take NUM-NUM | -NUM | NUM- | NUMLIST' >[1=2]
+	echo 'take num-num | -num | num- | numlist' >[1=2]
 	exit 1
 }
 
