@@ -26,7 +26,7 @@ Tools
 * omit: omit the given range (or list) of fields of the input and print the rest
 * take: print only a range (or list) of fields from the input
 
-The lange
+The range
 ---------
 
 A range is be defined like this (BNF):
