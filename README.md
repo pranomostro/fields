@@ -46,4 +46,4 @@ A list is just a sequence of nonnegative non-null integers.
 License
 =======
 
-See ./LICENSE.
+See [LICENSE](./LICENSE).
